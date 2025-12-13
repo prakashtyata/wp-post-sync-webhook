@@ -1,0 +1,291 @@
+# Copyright (C) 2024 Prakash Tyata
+# This file is distributed under the GPL-2.0+.
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Post Sync Webhook 1.7.0\n"
+"Report-Msgid-Bugs-To: https://softart.com.np/support\n"
+"Last-Translator: Prakash Tyata <developer@softart.com.np>\n"
+"Language-Team: SoftArt <developer@softart.com.np>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-01-01T00:00:00+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.8.1\n"
+"X-Domain: wp-post-sync-webhook\n"
+
+#: admin/partials/wpsw-admin-display.php:20
+msgid "📡 Post Sync Webhook"
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:22
+msgid "Sync posts seamlessly between WordPress sites"
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:42
+msgid "Current Mode"
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:48
+msgid "Total Syncs"
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:58
+msgid "%s ago"
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:60
+msgid "Never"
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:64
+msgid "Last Sync"
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:70
+msgid "Configured"
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:70
+msgid "Not Set"
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:73
+msgid "Security"
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:83
+msgid "Sync Mode"
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:90
+msgid "Sender"
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:91
+msgid "Send posts to another site"
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:97
+msgid "Receiver"
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:98
+msgid "Receive posts from another site"
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:104
+msgid "Both"
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:105
+msgid "Send and receive posts"
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:114
+msgid "Connection Settings"
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:120
+msgid "Receiver Webhook URL"
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:129
+msgid "Enter the receiving site's webhook endpoint. Required when this site is in Sender or Both mode."
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:134
+msgid "Secret Key"
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:143
+msgid "Enter secret key"
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:146
+msgid "Generate"
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:149
+msgid "Important:"
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:150
+msgid "This key must be identical on both sender and receiver sites."
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:155
+msgid "This Site's Receiver Endpoint"
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:161
+msgid "Copy"
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:164
+msgid "Share this URL with the sender site to receive posts here."
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:174
+msgid "Post Types to Sync"
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:194
+msgid "Select which post types should be synced when published or updated."
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:202
+msgid "Save Settings"
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:211
+msgid "Tools"
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:218
+msgid "Test Connection"
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:219
+msgid "Verify the connection to the receiver site."
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:227
+msgid "Manual Sync"
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:228
+msgid "Manually sync a specific post by ID."
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:230
+msgid "Post ID"
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:233
+msgid "Sync Post"
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:239
+msgid "Health Check"
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:240
+msgid "Check if the receiver endpoint is responding."
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:243
+msgid "Check Health"
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:253
+msgid "Quick Setup Guide"
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:258
+msgid "Sender Site Setup"
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:260
+msgid "Set mode to \"Sender\""
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:261
+msgid "Enter the receiver's webhook URL"
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:262
+msgid "Copy the secret key to the receiver site"
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:263
+msgid "Select post types to sync"
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:264
+msgid "Save settings"
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:268
+msgid "Receiver Site Setup"
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:270
+msgid "Set mode to \"Receiver\""
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:271
+msgid "Paste the same secret key from sender"
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:272
+msgid "Copy \"This Site's Receiver Endpoint\""
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:273
+msgid "Give that URL to the sender site"
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:283
+msgid "Developed by %s"
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:287
+msgid "Support"
+msgstr ""
+
+#: admin/partials/wpsw-admin-display.php:289
+msgid "Documentation"
+msgstr ""
+
+#: admin/class-wpsw-admin.php:75
+msgid "Settings"
+msgstr ""
+
+#: admin/class-wpsw-admin.php:87
+msgid "Unauthorized"
+msgstr ""
+
+#: admin/class-wpsw-admin.php:92
+msgid "Receiver URL not configured"
+msgstr ""
+
+#: admin/class-wpsw-admin.php:110
+msgid "Connected! Receiver version: %s"
+msgstr ""
+
+#: admin/class-wpsw-admin.php:113
+msgid "Unexpected response (HTTP %d)"
+msgstr ""
+
+#: admin/class-wpsw-admin.php:130
+msgid "Invalid post ID"
+msgstr ""
+
+#: admin/class-wpsw-admin.php:137
+msgid "Post not found"
+msgstr ""
+
+#: admin/class-wpsw-admin.php:145
+msgid "Post #%d synced successfully!"
+msgstr ""
+
+#: admin/class-wpsw-admin.php:147
+msgid "Sync failed. Check debug log for details."
+msgstr ""
+
+#: includes/class-wpsw-receiver.php:63
+msgid "Receiver mode not enabled"
+msgstr ""
+
+#: includes/class-wpsw-receiver.php:72
+msgid "Invalid JSON"
+msgstr ""
+
+#: includes/class-wpsw-receiver.php:79
+msgid "Invalid signature"
+msgstr ""
+
+#: includes/class-wpsw-receiver.php:88
+msgid "Missing source_site or post_id"
+msgstr ""
