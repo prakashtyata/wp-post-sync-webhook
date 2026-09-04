@@ -1,0 +1,25 @@
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Sensitive / local config
+.env
+.env.local
+
+# Build artifacts
+node_modules/
+*.zip
+
+# Temp
+*.tmp
+*.bak
