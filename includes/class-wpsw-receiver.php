@@ -71,7 +71,7 @@ class WPSW_Receiver {
 
         if ( ! in_array( $settings['mode'], array( 'receiver', 'both' ), true ) ) {
             return new WP_REST_Response(
-                array( 'error' => esc_html__( 'Receiver mode not enabled', 'wp-post-sync-webhook' ) ),
+                array( 'error' => esc_html__( 'Receiver mode not enabled', 'softart-post-sync-webhook' ) ),
                 403
             );
         }
@@ -81,7 +81,7 @@ class WPSW_Receiver {
 
         if ( ! is_array( $data ) ) {
             return new WP_REST_Response(
-                array( 'error' => esc_html__( 'Invalid JSON', 'wp-post-sync-webhook' ) ),
+                array( 'error' => esc_html__( 'Invalid JSON', 'softart-post-sync-webhook' ) ),
                 400
             );
         }
@@ -89,7 +89,7 @@ class WPSW_Receiver {
         if ( ! $this->verify_signature( $request, $body ) ) {
             $this->log( 'Invalid signature' );
             return new WP_REST_Response(
-                array( 'error' => esc_html__( 'Invalid signature', 'wp-post-sync-webhook' ) ),
+                array( 'error' => esc_html__( 'Invalid signature', 'softart-post-sync-webhook' ) ),
                 403
             );
         }
@@ -99,7 +99,7 @@ class WPSW_Receiver {
 
         if ( ! $source_site || ! $remote_id ) {
             return new WP_REST_Response(
-                array( 'error' => esc_html__( 'Missing source_site or post_id', 'wp-post-sync-webhook' ) ),
+                array( 'error' => esc_html__( 'Missing source_site or post_id', 'softart-post-sync-webhook' ) ),
                 400
             );
         }

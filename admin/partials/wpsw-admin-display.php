@@ -33,9 +33,9 @@ $total_synced = intval( $settings['sync_count'] ?? 0 );
     <!-- HEADER -->
     <div class="wpsw-header">
         <div class="wpsw-header-left">
-            <h1><?php esc_html_e( 'WP Post Sync Webhook', 'wp-post-sync-webhook' ); ?></h1>
+            <h1><?php esc_html_e( 'WP Post Sync Webhook', 'softart-post-sync-webhook' ); ?></h1>
             <p class="wpsw-header-subtitle">
-                <?php esc_html_e( 'Sync posts, pages, and Elementor-built content between WordPress sites.', 'wp-post-sync-webhook' ); ?>
+                <?php esc_html_e( 'Sync posts, pages, and Elementor-built content between WordPress sites.', 'softart-post-sync-webhook' ); ?>
             </p>
         </div>
         <div class="wpsw-header-right">
@@ -43,9 +43,9 @@ $total_synced = intval( $settings['sync_count'] ?? 0 );
             <span class="wpsw-mode-badge wpsw-mode-badge-<?php echo esc_attr( $mode ); ?>" id="wpsw-current-mode-badge">
                 <?php
                 $mode_labels = array(
-                    'sender'   => '📤 ' . esc_html__( 'Sender', 'wp-post-sync-webhook' ),
-                    'receiver' => '📥 ' . esc_html__( 'Receiver', 'wp-post-sync-webhook' ),
-                    'both'     => '🔄 ' . esc_html__( 'Two-Way', 'wp-post-sync-webhook' ),
+                    'sender'   => '📤 ' . esc_html__( 'Sender', 'softart-post-sync-webhook' ),
+                    'receiver' => '📥 ' . esc_html__( 'Receiver', 'softart-post-sync-webhook' ),
+                    'both'     => '🔄 ' . esc_html__( 'Two-Way', 'softart-post-sync-webhook' ),
                 );
                 echo $mode_labels[ $mode ] ?? $mode_labels['sender'];
                 ?>
@@ -59,26 +59,26 @@ $total_synced = intval( $settings['sync_count'] ?? 0 );
            class="wpsw-tab <?php echo 'dashboard' === $active_tab ? 'active' : ''; ?>"
            role="tab">
             <span class="dashicons dashicons-dashboard"></span>
-            <?php esc_html_e( 'Dashboard', 'wp-post-sync-webhook' ); ?>
+            <?php esc_html_e( 'Dashboard', 'softart-post-sync-webhook' ); ?>
         </a>
         <a href="?page=wp-post-sync-webhook&tab=connections"
            class="wpsw-tab <?php echo 'connections' === $active_tab ? 'active' : ''; ?>"
            role="tab">
             <span class="dashicons dashicons-admin-links"></span>
-            <?php esc_html_e( 'Connections', 'wp-post-sync-webhook' ); ?>
+            <?php esc_html_e( 'Connections', 'softart-post-sync-webhook' ); ?>
             <span class="wpsw-tab-badge"><?php echo $receiver_count; ?></span>
         </a>
         <a href="?page=wp-post-sync-webhook&tab=sync-rules"
            class="wpsw-tab <?php echo 'sync-rules' === $active_tab ? 'active' : ''; ?>"
            role="tab">
             <span class="dashicons dashicons-randomize"></span>
-            <?php esc_html_e( 'Sync Rules', 'wp-post-sync-webhook' ); ?>
+            <?php esc_html_e( 'Sync Rules', 'softart-post-sync-webhook' ); ?>
         </a>
         <a href="?page=wp-post-sync-webhook&tab=tools"
            class="wpsw-tab <?php echo 'tools' === $active_tab ? 'active' : ''; ?>"
            role="tab">
             <span class="dashicons dashicons-admin-tools"></span>
-            <?php esc_html_e( 'Tools', 'wp-post-sync-webhook' ); ?>
+            <?php esc_html_e( 'Tools', 'softart-post-sync-webhook' ); ?>
         </a>
     </nav>
 
@@ -94,17 +94,17 @@ $total_synced = intval( $settings['sync_count'] ?? 0 );
                     <?php echo 'sender' === $mode ? '📤' : ( 'receiver' === $mode ? '📥' : '🔄' ); ?>
                 </span>
                 <div class="wpsw-card-value"><?php echo esc_html( ucfirst( $mode ) ); ?></div>
-                <div class="wpsw-card-label"><?php esc_html_e( 'Mode', 'wp-post-sync-webhook' ); ?></div>
+                <div class="wpsw-card-label"><?php esc_html_e( 'Mode', 'softart-post-sync-webhook' ); ?></div>
             </div>
             <div class="wpsw-card wpsw-status-card">
                 <span class="wpsw-card-icon">📡</span>
                 <div class="wpsw-card-value"><?php echo $receiver_count; ?></div>
-                <div class="wpsw-card-label"><?php esc_html_e( 'Active Receivers', 'wp-post-sync-webhook' ); ?></div>
+                <div class="wpsw-card-label"><?php esc_html_e( 'Active Receivers', 'softart-post-sync-webhook' ); ?></div>
             </div>
             <div class="wpsw-card wpsw-status-card">
                 <span class="wpsw-card-icon">📊</span>
                 <div class="wpsw-card-value"><?php echo $total_synced; ?></div>
-                <div class="wpsw-card-label"><?php esc_html_e( 'Total Synced', 'wp-post-sync-webhook' ); ?></div>
+                <div class="wpsw-card-label"><?php esc_html_e( 'Total Synced', 'softart-post-sync-webhook' ); ?></div>
             </div>
             <div class="wpsw-card wpsw-status-card">
                 <span class="wpsw-card-icon">🕐</span>
@@ -112,15 +112,15 @@ $total_synced = intval( $settings['sync_count'] ?? 0 );
                     <?php
                     if ( ! empty( $settings['last_sync'] ) ) {
                         printf(
-                            esc_html__( '%s ago', 'wp-post-sync-webhook' ),
+                            esc_html__( '%s ago', 'softart-post-sync-webhook' ),
                             esc_html( human_time_diff( strtotime( $settings['last_sync'] ) ) )
                         );
                     } else {
-                        esc_html_e( 'Never', 'wp-post-sync-webhook' );
+                        esc_html_e( 'Never', 'softart-post-sync-webhook' );
                     }
                     ?>
                 </div>
-                <div class="wpsw-card-label"><?php esc_html_e( 'Last Activity', 'wp-post-sync-webhook' ); ?></div>
+                <div class="wpsw-card-label"><?php esc_html_e( 'Last Activity', 'softart-post-sync-webhook' ); ?></div>
             </div>
         </div>
 
@@ -128,12 +128,12 @@ $total_synced = intval( $settings['sync_count'] ?? 0 );
         <div class="wpsw-panel">
             <div class="wpsw-panel-header">
                 <span class="dashicons dashicons-sos"></span>
-                <h2><?php esc_html_e( 'Receiver Status', 'wp-post-sync-webhook' ); ?></h2>
+                <h2><?php esc_html_e( 'Receiver Status', 'softart-post-sync-webhook' ); ?></h2>
             </div>
             <div class="wpsw-panel-body">
                 <?php if ( empty( $receivers ) ) : ?>
                     <p class="wpsw-empty-state">
-                        <?php esc_html_e( 'No receivers configured. Go to Connections tab to add one.', 'wp-post-sync-webhook' ); ?>
+                        <?php esc_html_e( 'No receivers configured. Go to Connections tab to add one.', 'softart-post-sync-webhook' ); ?>
                     </p>
                 <?php else : ?>
                     <div class="wpsw-receiver-status-list">
@@ -145,12 +145,12 @@ $total_synced = intval( $settings['sync_count'] ?? 0 );
                                     <span class="wpsw-receiver-status-url"><?php echo esc_url( $recv['url'] ); ?></span>
                                 </div>
                                 <div class="wpsw-receiver-status-meta">
-                                    <span class="wpsw-rstat"><?php echo intval( $recv['sync_count'] ?? 0 ); ?> <?php esc_html_e( 'synced', 'wp-post-sync-webhook' ); ?></span>
+                                    <span class="wpsw-rstat"><?php echo intval( $recv['sync_count'] ?? 0 ); ?> <?php esc_html_e( 'synced', 'softart-post-sync-webhook' ); ?></span>
                                     <span class="wpsw-rstat">
                                         <?php if ( ! empty( $recv['last_sync'] ) ) : ?>
                                             <?php echo esc_html( human_time_diff( strtotime( $recv['last_sync'] ) ) ); ?> ago
                                         <?php else : ?>
-                                            <?php esc_html_e( 'Never', 'wp-post-sync-webhook' ); ?>
+                                            <?php esc_html_e( 'Never', 'softart-post-sync-webhook' ); ?>
                                         <?php endif; ?>
                                     </span>
                                     <span class="wpsw-status-badge wpsw-status-<?php echo esc_attr( $recv['last_status'] ?? 'pending' ); ?>">
@@ -169,21 +169,21 @@ $total_synced = intval( $settings['sync_count'] ?? 0 );
         <div class="wpsw-panel">
             <div class="wpsw-panel-header">
                 <span class="dashicons dashicons-location"></span>
-                <h2><?php esc_html_e( 'Your Webhook Endpoint', 'wp-post-sync-webhook' ); ?></h2>
+                <h2><?php esc_html_e( 'Your Webhook Endpoint', 'softart-post-sync-webhook' ); ?></h2>
             </div>
             <div class="wpsw-panel-body">
                 <div class="wpsw-endpoint-box" id="wpsw-endpoint-card">
                     <span class="dashicons dashicons-rest-api"></span>
                     <code id="wpsw-endpoint-code"><?php echo esc_html( $endpoint_url ); ?></code>
                     <button type="button" class="wpsw-btn wpsw-btn-success" id="wpsw-copy-endpoint" data-url="<?php echo esc_attr( $endpoint_url ); ?>">
-                        <?php esc_html_e( 'Copy Endpoint URL', 'wp-post-sync-webhook' ); ?>
+                        <?php esc_html_e( 'Copy Endpoint URL', 'softart-post-sync-webhook' ); ?>
                     </button>
                 </div>
                 <div class="wpsw-endpoint-hint">
                     <span class="dashicons dashicons-info"></span>
                     <div>
-                        <strong><?php esc_html_e( 'Receiver Site Action:', 'wp-post-sync-webhook' ); ?></strong>
-                        <?php esc_html_e( 'Copy this URL and paste it into the "Receiver Webhook URL" field on your Sender site(s).', 'wp-post-sync-webhook' ); ?>
+                        <strong><?php esc_html_e( 'Receiver Site Action:', 'softart-post-sync-webhook' ); ?></strong>
+                        <?php esc_html_e( 'Copy this URL and paste it into the "Receiver Webhook URL" field on your Sender site(s).', 'softart-post-sync-webhook' ); ?>
                     </div>
                 </div>
             </div>
@@ -205,27 +205,27 @@ $total_synced = intval( $settings['sync_count'] ?? 0 );
             <div class="wpsw-panel">
                 <div class="wpsw-panel-header">
                     <span class="dashicons dashicons-randomize"></span>
-                    <h2><?php esc_html_e( 'Site Role', 'wp-post-sync-webhook' ); ?></h2>
+                    <h2><?php esc_html_e( 'Site Role', 'softart-post-sync-webhook' ); ?></h2>
                 </div>
                 <div class="wpsw-panel-body">
                     <div class="wpsw-mode-options">
                         <label class="wpsw-mode-option <?php echo 'sender' === $mode ? 'active' : ''; ?>" data-mode="sender">
                             <input type="radio" name="wpsw_settings[mode]" value="sender" <?php checked( $mode, 'sender' ); ?>>
                             <div class="wpsw-mode-icon">📤</div>
-                            <div class="wpsw-mode-title"><?php esc_html_e( 'Sender', 'wp-post-sync-webhook' ); ?></div>
-                            <div class="wpsw-mode-desc"><?php esc_html_e( 'Push posts to other sites.', 'wp-post-sync-webhook' ); ?></div>
+                            <div class="wpsw-mode-title"><?php esc_html_e( 'Sender', 'softart-post-sync-webhook' ); ?></div>
+                            <div class="wpsw-mode-desc"><?php esc_html_e( 'Push posts to other sites.', 'softart-post-sync-webhook' ); ?></div>
                         </label>
                         <label class="wpsw-mode-option <?php echo 'receiver' === $mode ? 'active' : ''; ?>" data-mode="receiver">
                             <input type="radio" name="wpsw_settings[mode]" value="receiver" <?php checked( $mode, 'receiver' ); ?>>
                             <div class="wpsw-mode-icon">📥</div>
-                            <div class="wpsw-mode-title"><?php esc_html_e( 'Receiver', 'wp-post-sync-webhook' ); ?></div>
-                            <div class="wpsw-mode-desc"><?php esc_html_e( 'Accept posts from other sites.', 'wp-post-sync-webhook' ); ?></div>
+                            <div class="wpsw-mode-title"><?php esc_html_e( 'Receiver', 'softart-post-sync-webhook' ); ?></div>
+                            <div class="wpsw-mode-desc"><?php esc_html_e( 'Accept posts from other sites.', 'softart-post-sync-webhook' ); ?></div>
                         </label>
                         <label class="wpsw-mode-option <?php echo 'both' === $mode ? 'active' : ''; ?>" data-mode="both">
                             <input type="radio" name="wpsw_settings[mode]" value="both" <?php checked( $mode, 'both' ); ?>>
                             <div class="wpsw-mode-icon">🔄</div>
-                            <div class="wpsw-mode-title"><?php esc_html_e( 'Two-Way', 'wp-post-sync-webhook' ); ?></div>
-                            <div class="wpsw-mode-desc"><?php esc_html_e( 'Send and receive.', 'wp-post-sync-webhook' ); ?></div>
+                            <div class="wpsw-mode-title"><?php esc_html_e( 'Two-Way', 'softart-post-sync-webhook' ); ?></div>
+                            <div class="wpsw-mode-desc"><?php esc_html_e( 'Send and receive.', 'softart-post-sync-webhook' ); ?></div>
                         </label>
                     </div>
                 </div>
@@ -235,11 +235,11 @@ $total_synced = intval( $settings['sync_count'] ?? 0 );
             <div class="wpsw-panel">
                 <div class="wpsw-panel-header">
                     <span class="dashicons dashicons-admin-links"></span>
-                    <h2><?php esc_html_e( 'Receiver Sites', 'wp-post-sync-webhook' ); ?></h2>
+                    <h2><?php esc_html_e( 'Receiver Sites', 'softart-post-sync-webhook' ); ?></h2>
                     <div class="wpsw-header-actions">
                         <button type="button" class="wpsw-btn wpsw-btn-primary wpsw-btn-sm" id="wpsw-add-receiver">
                             <span class="dashicons dashicons-plus-alt2"></span>
-                            <?php esc_html_e( 'Add Receiver', 'wp-post-sync-webhook' ); ?>
+                            <?php esc_html_e( 'Add Receiver', 'softart-post-sync-webhook' ); ?>
                         </button>
                     </div>
                 </div>
@@ -247,7 +247,7 @@ $total_synced = intval( $settings['sync_count'] ?? 0 );
                     <div id="wpsw-receivers-container" class="wpsw-receivers-repeater">
                         <?php if ( empty( $receivers ) ) : ?>
                             <div class="wpsw-empty-receivers">
-                                <p><?php esc_html_e( 'No receiver sites configured. Click "Add Receiver" to get started.', 'wp-post-sync-webhook' ); ?></p>
+                                <p><?php esc_html_e( 'No receiver sites configured. Click "Add Receiver" to get started.', 'softart-post-sync-webhook' ); ?></p>
                             </div>
                         <?php endif; ?>
 
@@ -262,7 +262,7 @@ $total_synced = intval( $settings['sync_count'] ?? 0 );
                                                name="wpsw_settings[receivers][<?php echo $index; ?>][name]"
                                                value="<?php echo esc_attr( $recv['name'] ); ?>"
                                                class="wpsw-receiver-name-input"
-                                               placeholder="<?php esc_attr_e( 'Receiver name...', 'wp-post-sync-webhook' ); ?>">
+                                               placeholder="<?php esc_attr_e( 'Receiver name...', 'softart-post-sync-webhook' ); ?>">
                                     </div>
                                     <label class="wpsw-toggle">
                                         <input type="checkbox"
@@ -271,10 +271,10 @@ $total_synced = intval( $settings['sync_count'] ?? 0 );
                                                <?php checked( ! empty( $recv['enabled'] ) ); ?>>
                                         <span class="wpsw-toggle-slider"></span>
                                     </label>
-                                    <button type="button" class="wpsw-btn-icon wpsw-receiver-toggle" title="<?php esc_attr_e( 'Expand/Collapse', 'wp-post-sync-webhook' ); ?>">
+                                    <button type="button" class="wpsw-btn-icon wpsw-receiver-toggle" title="<?php esc_attr_e( 'Expand/Collapse', 'softart-post-sync-webhook' ); ?>">
                                         <span class="dashicons dashicons-arrow-down-alt2"></span>
                                     </button>
-                                    <button type="button" class="wpsw-btn-icon wpsw-btn-danger wpsw-remove-receiver" title="<?php esc_attr_e( 'Remove', 'wp-post-sync-webhook' ); ?>">
+                                    <button type="button" class="wpsw-btn-icon wpsw-btn-danger wpsw-remove-receiver" title="<?php esc_attr_e( 'Remove', 'softart-post-sync-webhook' ); ?>">
                                         <span class="dashicons dashicons-trash"></span>
                                     </button>
                                 </div>
@@ -285,12 +285,12 @@ $total_synced = intval( $settings['sync_count'] ?? 0 );
 
                                     <div class="wpsw-field-row">
                                         <label>
-                                            <?php esc_html_e( 'Webhook URL', 'wp-post-sync-webhook' ); ?>
+                                            <?php esc_html_e( 'Webhook URL', 'softart-post-sync-webhook' ); ?>
                                             <span class="wpsw-help-tip" tabindex="0" aria-label="help">
                                                 <span class="dashicons dashicons-editor-help"></span>
                                                 <span class="wpsw-tooltip wpsw-tooltip-wide">
-                                                    <strong><?php esc_html_e( 'Where to get this:', 'wp-post-sync-webhook' ); ?></strong>
-                                                    <?php esc_html_e( 'This is the receive endpoint on the destination (receiver) site. On that site, open Post Sync Webhook &rarr; Connections and copy the "Your Webhook Endpoint" URL, then paste it here.', 'wp-post-sync-webhook' ); ?>
+                                                    <strong><?php esc_html_e( 'Where to get this:', 'softart-post-sync-webhook' ); ?></strong>
+                                                    <?php esc_html_e( 'This is the receive endpoint on the destination (receiver) site. On that site, open Post Sync Webhook &rarr; Connections and copy the "Your Webhook Endpoint" URL, then paste it here.', 'softart-post-sync-webhook' ); ?>
                                                 </span>
                                             </span>
                                         </label>
@@ -306,12 +306,12 @@ $total_synced = intval( $settings['sync_count'] ?? 0 );
 
                                     <div class="wpsw-field-row">
                                         <label>
-                                            <?php esc_html_e( 'Secret Key', 'wp-post-sync-webhook' ); ?>
+                                            <?php esc_html_e( 'Secret Key', 'softart-post-sync-webhook' ); ?>
                                             <span class="wpsw-help-tip" tabindex="0" aria-label="help">
                                                 <span class="dashicons dashicons-editor-help"></span>
                                                 <span class="wpsw-tooltip">
-                                                    <strong><?php esc_html_e( 'Where to get / put this:', 'wp-post-sync-webhook' ); ?></strong>
-                                                    <?php esc_html_e( 'A shared password between both sites. Use the "Secret Key" shown on the receiver site (Connections tab) and paste the exact same key here, OR generate one here and paste it on the receiver site. Both sides must match.', 'wp-post-sync-webhook' ); ?>
+                                                    <strong><?php esc_html_e( 'Where to get / put this:', 'softart-post-sync-webhook' ); ?></strong>
+                                                    <?php esc_html_e( 'A shared password between both sites. Use the "Secret Key" shown on the receiver site (Connections tab) and paste the exact same key here, OR generate one here and paste it on the receiver site. Both sides must match.', 'softart-post-sync-webhook' ); ?>
                                                 </span>
                                             </span>
                                         </label>
@@ -320,21 +320,21 @@ $total_synced = intval( $settings['sync_count'] ?? 0 );
                                                    name="wpsw_settings[receivers][<?php echo $index; ?>][secret_key]"
                                                    value="<?php echo esc_attr( $recv['secret_key'] ); ?>"
                                                    class="wpsw-input wpsw-input-full wpsw-secret-key"
-                                                   placeholder="<?php esc_attr_e( 'Enter or generate key...', 'wp-post-sync-webhook' ); ?>">
-                                            <button type="button" class="wpsw-btn-icon wpsw-toggle-key-visibility" title="<?php esc_attr_e( 'Show/Hide', 'wp-post-sync-webhook' ); ?>">
+                                                   placeholder="<?php esc_attr_e( 'Enter or generate key...', 'softart-post-sync-webhook' ); ?>">
+                                            <button type="button" class="wpsw-btn-icon wpsw-toggle-key-visibility" title="<?php esc_attr_e( 'Show/Hide', 'softart-post-sync-webhook' ); ?>">
                                                 <span class="dashicons dashicons-visibility"></span>
                                             </button>
-                                            <button type="button" class="wpsw-btn wpsw-btn-secondary wpsw-generate-key" title="<?php esc_attr_e( 'Generate Key', 'wp-post-sync-webhook' ); ?>">
+                                            <button type="button" class="wpsw-btn wpsw-btn-secondary wpsw-generate-key" title="<?php esc_attr_e( 'Generate Key', 'softart-post-sync-webhook' ); ?>">
                                                 <span class="dashicons dashicons-update"></span>
                                             </button>
-                                            <button type="button" class="wpsw-btn wpsw-btn-secondary wpsw-copy-key" title="<?php esc_attr_e( 'Copy Key', 'wp-post-sync-webhook' ); ?>">
+                                            <button type="button" class="wpsw-btn wpsw-btn-secondary wpsw-copy-key" title="<?php esc_attr_e( 'Copy Key', 'softart-post-sync-webhook' ); ?>">
                                                 <span class="dashicons dashicons-clipboard"></span>
                                             </button>
                                         </div>
                                     </div>
 
                                     <div class="wpsw-field-row">
-                                        <label><?php esc_html_e( 'Post Types', 'wp-post-sync-webhook' ); ?></label>
+                                        <label><?php esc_html_e( 'Post Types', 'softart-post-sync-webhook' ); ?></label>
                                         <div class="wpsw-checkbox-group wpsw-pt-checkboxes">
                                             <?php
                                             $post_types = get_post_types( array( 'public' => true ), 'objects' );
@@ -361,7 +361,7 @@ $total_synced = intval( $settings['sync_count'] ?? 0 );
                                     <div class="wpsw-receiver-card-actions">
                                         <button type="button" class="wpsw-btn wpsw-btn-secondary wpsw-test-connection" data-receiver-id="<?php echo esc_attr( $recv['id'] ); ?>">
                                             <span class="dashicons dashicons-sos"></span>
-                                            <?php esc_html_e( 'Test Connection', 'wp-post-sync-webhook' ); ?>
+                                            <?php esc_html_e( 'Test Connection', 'softart-post-sync-webhook' ); ?>
                                         </button>
                                         <div class="wpsw-receiver-result"></div>
                                     </div>
@@ -377,7 +377,7 @@ $total_synced = intval( $settings['sync_count'] ?? 0 );
             <div class="wpsw-panel">
                 <div class="wpsw-panel-header">
                     <span class="dashicons dashicons-location"></span>
-                    <h2><?php esc_html_e( 'Your Webhook Endpoint &amp; Secret Key', 'wp-post-sync-webhook' ); ?></h2>
+                    <h2><?php esc_html_e( 'Your Webhook Endpoint &amp; Secret Key', 'softart-post-sync-webhook' ); ?></h2>
                 </div>
                 <div class="wpsw-panel-body">
 
@@ -385,7 +385,7 @@ $total_synced = intval( $settings['sync_count'] ?? 0 );
                         <span class="dashicons dashicons-rest-api"></span>
                         <code id="wpsw-endpoint-code"><?php echo esc_html( $endpoint_url ); ?></code>
                         <button type="button" class="wpsw-btn wpsw-btn-success" id="wpsw-copy-endpoint" data-url="<?php echo esc_attr( $endpoint_url ); ?>">
-                            <?php esc_html_e( 'Copy Endpoint URL', 'wp-post-sync-webhook' ); ?>
+                            <?php esc_html_e( 'Copy Endpoint URL', 'softart-post-sync-webhook' ); ?>
                         </button>
                     </div>
 
@@ -393,8 +393,8 @@ $total_synced = intval( $settings['sync_count'] ?? 0 );
                         <div class="wpsw-receiver-key-label">
                             <span class="dashicons dashicons-lock"></span>
                             <span>
-                                <strong><?php esc_html_e( 'Your Secret Key', 'wp-post-sync-webhook' ); ?></strong>
-                                <em><?php esc_html_e( "Share this with your Sender site(s) - they must paste the exact same key in the receiver's \"Secret Key\" field.", 'wp-post-sync-webhook' ); ?></em>
+                                <strong><?php esc_html_e( 'Your Secret Key', 'softart-post-sync-webhook' ); ?></strong>
+                                <em><?php esc_html_e( "Share this with your Sender site(s) - they must paste the exact same key in the receiver's \"Secret Key\" field.", 'softart-post-sync-webhook' ); ?></em>
                             </span>
                         </div>
                         <div class="wpsw-field-input-group wpsw-key-group">
@@ -402,18 +402,18 @@ $total_synced = intval( $settings['sync_count'] ?? 0 );
                                    name="wpsw_settings[secret_key]"
                                    value="<?php echo esc_attr( $settings['secret_key'] ?? '' ); ?>"
                                    class="wpsw-input wpsw-input-full wpsw-secret-key wpsw-receiver-secret"
-                                   placeholder="<?php esc_attr_e( 'Generate or enter a key...', 'wp-post-sync-webhook' ); ?>">
-                            <button type="button" class="wpsw-btn-icon wpsw-toggle-key-visibility" title="<?php esc_attr_e( 'Show/Hide', 'wp-post-sync-webhook' ); ?>">
+                                   placeholder="<?php esc_attr_e( 'Generate or enter a key...', 'softart-post-sync-webhook' ); ?>">
+                            <button type="button" class="wpsw-btn-icon wpsw-toggle-key-visibility" title="<?php esc_attr_e( 'Show/Hide', 'softart-post-sync-webhook' ); ?>">
                                 <span class="dashicons dashicons-visibility"></span>
                             </button>
-                            <button type="button" class="wpsw-btn wpsw-btn-secondary wpsw-generate-key" title="<?php esc_attr_e( 'Generate Key', 'wp-post-sync-webhook' ); ?>">
+                            <button type="button" class="wpsw-btn wpsw-btn-secondary wpsw-generate-key" title="<?php esc_attr_e( 'Generate Key', 'softart-post-sync-webhook' ); ?>">
                                 <span class="dashicons dashicons-update"></span>
                             </button>
-                            <button type="button" class="wpsw-btn wpsw-btn-secondary wpsw-copy-key" title="<?php esc_attr_e( 'Copy Key', 'wp-post-sync-webhook' ); ?>">
+                            <button type="button" class="wpsw-btn wpsw-btn-secondary wpsw-copy-key" title="<?php esc_attr_e( 'Copy Key', 'softart-post-sync-webhook' ); ?>">
                                 <span class="dashicons dashicons-clipboard"></span>
                             </button>
                         </div>
-                        <p class="wpsw-description"><?php esc_html_e( 'Save Settings after changing the key. Both the sender and receiver must use the same secret key for syncs to authenticate.', 'wp-post-sync-webhook' ); ?></p>
+                        <p class="wpsw-description"><?php esc_html_e( 'Save Settings after changing the key. Both the sender and receiver must use the same secret key for syncs to authenticate.', 'softart-post-sync-webhook' ); ?></p>
                     </div>
 
                 </div>
@@ -422,7 +422,7 @@ $total_synced = intval( $settings['sync_count'] ?? 0 );
 
             <div class="wpsw-save-section">
                 <button type="submit" class="wpsw-btn wpsw-btn-primary wpsw-btn-large">
-                    <?php esc_html_e( 'Save Settings', 'wp-post-sync-webhook' ); ?>
+                    <?php esc_html_e( 'Save Settings', 'softart-post-sync-webhook' ); ?>
                 </button>
             </div>
 
@@ -455,29 +455,29 @@ $total_synced = intval( $settings['sync_count'] ?? 0 );
             <div class="wpsw-panel">
                 <div class="wpsw-panel-header">
                     <span class="dashicons dashicons-edit"></span>
-                    <h2><?php esc_html_e( 'Content Fields', 'wp-post-sync-webhook' ); ?></h2>
+                    <h2><?php esc_html_e( 'Content Fields', 'softart-post-sync-webhook' ); ?></h2>
                 </div>
                 <div class="wpsw-panel-body">
                     <div class="wpsw-checkbox-group wpsw-rules-group">
                         <label class="wpsw-checkbox-item <?php echo ! empty( $rules['sync_title'] ) ? 'checked' : ''; ?>">
                             <input type="checkbox" name="wpsw_settings[sync_rules][sync_title]" value="1" <?php checked( ! empty( $rules['sync_title'] ) ); ?>>
-                            <span class="wpsw-pt-label"><?php esc_html_e( 'Title', 'wp-post-sync-webhook' ); ?></span>
+                            <span class="wpsw-pt-label"><?php esc_html_e( 'Title', 'softart-post-sync-webhook' ); ?></span>
                         </label>
                         <label class="wpsw-checkbox-item <?php echo ! empty( $rules['sync_content'] ) ? 'checked' : ''; ?>">
                             <input type="checkbox" name="wpsw_settings[sync_rules][sync_content]" value="1" <?php checked( ! empty( $rules['sync_content'] ) ); ?>>
-                            <span class="wpsw-pt-label"><?php esc_html_e( 'Content', 'wp-post-sync-webhook' ); ?></span>
+                            <span class="wpsw-pt-label"><?php esc_html_e( 'Content', 'softart-post-sync-webhook' ); ?></span>
                         </label>
                         <label class="wpsw-checkbox-item <?php echo ! empty( $rules['sync_excerpt'] ) ? 'checked' : ''; ?>">
                             <input type="checkbox" name="wpsw_settings[sync_rules][sync_excerpt]" value="1" <?php checked( ! empty( $rules['sync_excerpt'] ) ); ?>>
-                            <span class="wpsw-pt-label"><?php esc_html_e( 'Excerpt', 'wp-post-sync-webhook' ); ?></span>
+                            <span class="wpsw-pt-label"><?php esc_html_e( 'Excerpt', 'softart-post-sync-webhook' ); ?></span>
                         </label>
                         <label class="wpsw-checkbox-item <?php echo ! empty( $rules['sync_slug'] ) ? 'checked' : ''; ?>">
                             <input type="checkbox" name="wpsw_settings[sync_rules][sync_slug]" value="1" <?php checked( ! empty( $rules['sync_slug'] ) ); ?>>
-                            <span class="wpsw-pt-label"><?php esc_html_e( 'Slug', 'wp-post-sync-webhook' ); ?></span>
+                            <span class="wpsw-pt-label"><?php esc_html_e( 'Slug', 'softart-post-sync-webhook' ); ?></span>
                         </label>
                         <label class="wpsw-checkbox-item <?php echo ! empty( $rules['sync_status'] ) ? 'checked' : ''; ?>">
                             <input type="checkbox" name="wpsw_settings[sync_rules][sync_status]" value="1" <?php checked( ! empty( $rules['sync_status'] ) ); ?>>
-                            <span class="wpsw-pt-label"><?php esc_html_e( 'Status', 'wp-post-sync-webhook' ); ?></span>
+                            <span class="wpsw-pt-label"><?php esc_html_e( 'Status', 'softart-post-sync-webhook' ); ?></span>
                         </label>
                     </div>
                 </div>
@@ -486,25 +486,25 @@ $total_synced = intval( $settings['sync_count'] ?? 0 );
             <div class="wpsw-panel">
                 <div class="wpsw-panel-header">
                     <span class="dashicons dashicons-category"></span>
-                    <h2><?php esc_html_e( 'Taxonomies & Media', 'wp-post-sync-webhook' ); ?></h2>
+                    <h2><?php esc_html_e( 'Taxonomies & Media', 'softart-post-sync-webhook' ); ?></h2>
                 </div>
                 <div class="wpsw-panel-body">
                     <div class="wpsw-checkbox-group wpsw-rules-group">
                         <label class="wpsw-checkbox-item <?php echo ! empty( $rules['sync_categories'] ) ? 'checked' : ''; ?>">
                             <input type="checkbox" name="wpsw_settings[sync_rules][sync_categories]" value="1" <?php checked( ! empty( $rules['sync_categories'] ) ); ?>>
-                            <span class="wpsw-pt-label"><?php esc_html_e( 'Categories', 'wp-post-sync-webhook' ); ?></span>
+                            <span class="wpsw-pt-label"><?php esc_html_e( 'Categories', 'softart-post-sync-webhook' ); ?></span>
                         </label>
                         <label class="wpsw-checkbox-item <?php echo ! empty( $rules['sync_tags'] ) ? 'checked' : ''; ?>">
                             <input type="checkbox" name="wpsw_settings[sync_rules][sync_tags]" value="1" <?php checked( ! empty( $rules['sync_tags'] ) ); ?>>
-                            <span class="wpsw-pt-label"><?php esc_html_e( 'Tags', 'wp-post-sync-webhook' ); ?></span>
+                            <span class="wpsw-pt-label"><?php esc_html_e( 'Tags', 'softart-post-sync-webhook' ); ?></span>
                         </label>
                         <label class="wpsw-checkbox-item <?php echo ! empty( $rules['sync_featured_img'] ) ? 'checked' : ''; ?>">
                             <input type="checkbox" name="wpsw_settings[sync_rules][sync_featured_img]" value="1" <?php checked( ! empty( $rules['sync_featured_img'] ) ); ?>>
-                            <span class="wpsw-pt-label"><?php esc_html_e( 'Featured Image', 'wp-post-sync-webhook' ); ?></span>
+                            <span class="wpsw-pt-label"><?php esc_html_e( 'Featured Image', 'softart-post-sync-webhook' ); ?></span>
                         </label>
                         <label class="wpsw-checkbox-item <?php echo ! empty( $rules['sync_content_imgs'] ) ? 'checked' : ''; ?>">
                             <input type="checkbox" name="wpsw_settings[sync_rules][sync_content_imgs]" value="1" <?php checked( ! empty( $rules['sync_content_imgs'] ) ); ?>>
-                            <span class="wpsw-pt-label"><?php esc_html_e( 'Content Images', 'wp-post-sync-webhook' ); ?></span>
+                            <span class="wpsw-pt-label"><?php esc_html_e( 'Content Images', 'softart-post-sync-webhook' ); ?></span>
                         </label>
                     </div>
                 </div>
@@ -513,48 +513,48 @@ $total_synced = intval( $settings['sync_count'] ?? 0 );
             <div class="wpsw-panel">
                 <div class="wpsw-panel-header">
                     <span class="dashicons dashicons-code"></span>
-                    <h2><?php esc_html_e( 'Meta & Builder Data', 'wp-post-sync-webhook' ); ?></h2>
+                    <h2><?php esc_html_e( 'Meta & Builder Data', 'softart-post-sync-webhook' ); ?></h2>
                 </div>
                 <div class="wpsw-panel-body">
                     <div class="wpsw-checkbox-group wpsw-rules-group">
                         <label class="wpsw-checkbox-item <?php echo ! empty( $rules['sync_meta'] ) ? 'checked' : ''; ?>">
                             <input type="checkbox" name="wpsw_settings[sync_rules][sync_meta]" value="1" <?php checked( ! empty( $rules['sync_meta'] ) ); ?>>
-                            <span class="wpsw-pt-label"><?php esc_html_e( 'Custom Fields (Post Meta)', 'wp-post-sync-webhook' ); ?></span>
+                            <span class="wpsw-pt-label"><?php esc_html_e( 'Custom Fields (Post Meta)', 'softart-post-sync-webhook' ); ?></span>
                         </label>
                         <label class="wpsw-checkbox-item <?php echo ! empty( $rules['sync_builder_data'] ) ? 'checked' : ''; ?>">
                             <input type="checkbox" name="wpsw_settings[sync_rules][sync_builder_data]" value="1" <?php checked( ! empty( $rules['sync_builder_data'] ) ); ?>>
-                            <span class="wpsw-pt-label"><?php esc_html_e( 'Page Builder Data (Elementor/Divi)', 'wp-post-sync-webhook' ); ?></span>
+                            <span class="wpsw-pt-label"><?php esc_html_e( 'Page Builder Data (Elementor/Divi)', 'softart-post-sync-webhook' ); ?></span>
                         </label>
                     </div>
 
                     <div class="wpsw-field-row" style="margin-top:16px;">
-                        <label for="wpsw-meta-exclude"><?php esc_html_e( 'Meta Keys to Exclude', 'wp-post-sync-webhook' ); ?></label>
+                        <label for="wpsw-meta-exclude"><?php esc_html_e( 'Meta Keys to Exclude', 'softart-post-sync-webhook' ); ?></label>
                         <input type="text"
                                id="wpsw-meta-exclude"
                                name="wpsw_settings[sync_rules][meta_exclude]"
                                value="<?php echo esc_attr( $rules['meta_exclude'] ?? '' ); ?>"
                                class="wpsw-input wpsw-input-full"
                                placeholder="_edit_lock, _edit_last, _thumbnail_id">
-                        <p class="wpsw-description"><?php esc_html_e( 'Comma-separated list of meta keys to exclude from sync.', 'wp-post-sync-webhook' ); ?></p>
+                        <p class="wpsw-description"><?php esc_html_e( 'Comma-separated list of meta keys to exclude from sync.', 'softart-post-sync-webhook' ); ?></p>
                     </div>
 
                     <div class="wpsw-field-row" style="margin-top:16px;">
-                        <label for="wpsw-default-status"><?php esc_html_e( 'Default Post Status', 'wp-post-sync-webhook' ); ?></label>
+                        <label for="wpsw-default-status"><?php esc_html_e( 'Default Post Status', 'softart-post-sync-webhook' ); ?></label>
                         <select id="wpsw-default-status"
                                 name="wpsw_settings[sync_rules][default_status]"
                                 class="wpsw-select">
-                            <option value="publish" <?php selected( $rules['default_status'] ?? '', 'publish' ); ?>><?php esc_html_e( 'Published', 'wp-post-sync-webhook' ); ?></option>
-                            <option value="draft" <?php selected( $rules['default_status'] ?? '', 'draft' ); ?>><?php esc_html_e( 'Draft', 'wp-post-sync-webhook' ); ?></option>
-                            <option value="pending" <?php selected( $rules['default_status'] ?? '', 'pending' ); ?>><?php esc_html_e( 'Pending Review', 'wp-post-sync-webhook' ); ?></option>
+                            <option value="publish" <?php selected( $rules['default_status'] ?? '', 'publish' ); ?>><?php esc_html_e( 'Published', 'softart-post-sync-webhook' ); ?></option>
+                            <option value="draft" <?php selected( $rules['default_status'] ?? '', 'draft' ); ?>><?php esc_html_e( 'Draft', 'softart-post-sync-webhook' ); ?></option>
+                            <option value="pending" <?php selected( $rules['default_status'] ?? '', 'pending' ); ?>><?php esc_html_e( 'Pending Review', 'softart-post-sync-webhook' ); ?></option>
                         </select>
-                        <p class="wpsw-description"><?php esc_html_e( 'Status for newly received posts when the sender status cannot be preserved.', 'wp-post-sync-webhook' ); ?></p>
+                        <p class="wpsw-description"><?php esc_html_e( 'Status for newly received posts when the sender status cannot be preserved.', 'softart-post-sync-webhook' ); ?></p>
                     </div>
                 </div>
             </div>
 
             <div class="wpsw-save-section">
                 <button type="submit" class="wpsw-btn wpsw-btn-primary wpsw-btn-large">
-                    <?php esc_html_e( 'Save Sync Rules', 'wp-post-sync-webhook' ); ?>
+                    <?php esc_html_e( 'Save Sync Rules', 'softart-post-sync-webhook' ); ?>
                 </button>
             </div>
 
@@ -571,13 +571,13 @@ $total_synced = intval( $settings['sync_count'] ?? 0 );
         <div class="wpsw-panel">
             <div class="wpsw-panel-header">
                 <span class="dashicons dashicons-admin-tools"></span>
-                <h2><?php esc_html_e( 'Manual Sync', 'wp-post-sync-webhook' ); ?></h2>
+                <h2><?php esc_html_e( 'Manual Sync', 'softart-post-sync-webhook' ); ?></h2>
             </div>
             <div class="wpsw-panel-body">
                 <div class="wpsw-tool-inline">
 
                     <div class="wpsw-field-row">
-                        <label><?php esc_html_e( 'Post Type', 'wp-post-sync-webhook' ); ?></label>
+                        <label><?php esc_html_e( 'Post Type', 'softart-post-sync-webhook' ); ?></label>
                         <select id="wpsw-sync-post-type" class="wpsw-select">
                             <?php
                             $tool_post_types = get_post_types( array( 'public' => true ), 'objects' );
@@ -591,20 +591,20 @@ $total_synced = intval( $settings['sync_count'] ?? 0 );
                             }
                             ?>
                         </select>
-                        <p class="wpsw-description"><?php esc_html_e( 'Select the post type. The full list is shown below — type to search, or scroll to browse. Add posts to the selection.', 'wp-post-sync-webhook' ); ?></p>
+                        <p class="wpsw-description"><?php esc_html_e( 'Select the post type. The full list is shown below — type to search, or scroll to browse. Add posts to the selection.', 'softart-post-sync-webhook' ); ?></p>
                     </div>
 
                     <div class="wpsw-field-row">
-                        <label><?php esc_html_e( 'Select Posts', 'wp-post-sync-webhook' ); ?></label>
+                        <label><?php esc_html_e( 'Select Posts', 'softart-post-sync-webhook' ); ?></label>
                         <div class="wpsw-multi-picker">
                             <div class="wpsw-multi-search">
-                                <input type="text" id="wpsw-post-search" class="wpsw-input wpsw-input-full" placeholder="<?php esc_attr_e( 'Showing all — type to search...', 'wp-post-sync-webhook' ); ?>" autocomplete="off">
+                                <input type="text" id="wpsw-post-search" class="wpsw-input wpsw-input-full" placeholder="<?php esc_attr_e( 'Showing all — type to search...', 'softart-post-sync-webhook' ); ?>" autocomplete="off">
                                 <span class="wpsw-multi-spinner wpsw-hidden"></span>
                             </div>
                             <div class="wpsw-multi-results" id="wpsw-post-search-results"></div>
                             <div class="wpsw-multi-selected">
                                 <div class="wpsw-multi-selected-head">
-                                    <strong><?php esc_html_e( 'Selected', 'wp-post-sync-webhook' ); ?></strong>
+                                    <strong><?php esc_html_e( 'Selected', 'softart-post-sync-webhook' ); ?></strong>
                                     <span class="wpsw-selected-count" id="wpsw-selected-count">0</span>
                                 </div>
                                 <div class="wpsw-selected-items" id="wpsw-selected-items"></div>
@@ -614,27 +614,27 @@ $total_synced = intval( $settings['sync_count'] ?? 0 );
 
                     <div class="wpsw-field-row">
                         <label>
-                            <?php esc_html_e( 'Or Enter Post/Page IDs Manually', 'wp-post-sync-webhook' ); ?>
+                            <?php esc_html_e( 'Or Enter Post/Page IDs Manually', 'softart-post-sync-webhook' ); ?>
                             <span class="wpsw-help-tip" tabindex="0" aria-label="help">
                                 <span class="dashicons dashicons-editor-help"></span>
                                 <span class="wpsw-tooltip">
-                                    <strong><?php esc_html_e( 'Manual IDs:', 'wp-post-sync-webhook' ); ?></strong>
-                                    <?php esc_html_e( 'Type one or more post/page IDs separated by commas (e.g. 12, 45, 78) then click "Add IDs" to include them in the selection.', 'wp-post-sync-webhook' ); ?>
+                                    <strong><?php esc_html_e( 'Manual IDs:', 'softart-post-sync-webhook' ); ?></strong>
+                                    <?php esc_html_e( 'Type one or more post/page IDs separated by commas (e.g. 12, 45, 78) then click "Add IDs" to include them in the selection.', 'softart-post-sync-webhook' ); ?>
                                 </span>
                             </span>
                         </label>
                         <div class="wpsw-field-input-group">
-                            <input type="text" id="wpsw-manual-ids" class="wpsw-input wpsw-input-full" placeholder="<?php esc_attr_e( 'e.g. 12, 45, 78', 'wp-post-sync-webhook' ); ?>" autocomplete="off">
+                            <input type="text" id="wpsw-manual-ids" class="wpsw-input wpsw-input-full" placeholder="<?php esc_attr_e( 'e.g. 12, 45, 78', 'softart-post-sync-webhook' ); ?>" autocomplete="off">
                             <button type="button" class="wpsw-btn wpsw-btn-secondary" id="wpsw-add-ids-btn">
                                 <span class="dashicons dashicons-plus-alt2"></span>
-                                <?php esc_html_e( 'Add IDs', 'wp-post-sync-webhook' ); ?>
+                                <?php esc_html_e( 'Add IDs', 'softart-post-sync-webhook' ); ?>
                             </button>
                         </div>
                     </div>
 
                     <div class="wpsw-tool-inline-fields">
                         <select id="wpsw-sync-receiver-id" class="wpsw-select">
-                            <option value="all"><?php esc_html_e( 'All Receivers', 'wp-post-sync-webhook' ); ?></option>
+                            <option value="all"><?php esc_html_e( 'All Receivers', 'softart-post-sync-webhook' ); ?></option>
                             <?php foreach ( $receivers as $recv ) : ?>
                                 <?php if ( ! empty( $recv['enabled'] ) ) : ?>
                                     <option value="<?php echo esc_attr( $recv['id'] ); ?>"><?php echo esc_html( $recv['name'] ); ?></option>
@@ -643,7 +643,7 @@ $total_synced = intval( $settings['sync_count'] ?? 0 );
                         </select>
                         <button type="button" class="wpsw-btn wpsw-btn-primary" id="wpsw-sync-btn">
                             <span class="dashicons dashicons-update"></span>
-                            <?php esc_html_e( 'Sync Selected', 'wp-post-sync-webhook' ); ?>
+                            <?php esc_html_e( 'Sync Selected', 'softart-post-sync-webhook' ); ?>
                         </button>
                     </div>
 
@@ -655,7 +655,7 @@ $total_synced = intval( $settings['sync_count'] ?? 0 );
         <div class="wpsw-panel">
             <div class="wpsw-panel-header">
                 <span class="dashicons dashicons-sos"></span>
-                <h2><?php esc_html_e( 'Connection Test', 'wp-post-sync-webhook' ); ?></h2>
+                <h2><?php esc_html_e( 'Connection Test', 'softart-post-sync-webhook' ); ?></h2>
             </div>
             <div class="wpsw-panel-body">
                 <div class="wpsw-tool-inline">
@@ -668,7 +668,7 @@ $total_synced = intval( $settings['sync_count'] ?? 0 );
                             <?php endforeach; ?>
                         </select>
                         <button type="button" class="wpsw-btn wpsw-btn-secondary" id="wpsw-test-btn">
-                            <?php esc_html_e( 'Test Connection', 'wp-post-sync-webhook' ); ?>
+                            <?php esc_html_e( 'Test Connection', 'softart-post-sync-webhook' ); ?>
                         </button>
                     </div>
                     <div class="wpsw-result" id="wpsw-test-result"></div>
@@ -679,21 +679,21 @@ $total_synced = intval( $settings['sync_count'] ?? 0 );
         <div class="wpsw-panel">
             <div class="wpsw-panel-header">
                 <span class="dashicons dashicons-media-document"></span>
-                <h2><?php esc_html_e( 'Activity Log', 'wp-post-sync-webhook' ); ?></h2>
+                <h2><?php esc_html_e( 'Activity Log', 'softart-post-sync-webhook' ); ?></h2>
                 <div class="wpsw-header-actions">
                     <button type="button" class="wpsw-btn wpsw-btn-secondary wpsw-btn-sm" id="wpsw-refresh-log">
                         <span class="dashicons dashicons-update"></span>
-                        <?php esc_html_e( 'Refresh', 'wp-post-sync-webhook' ); ?>
+                        <?php esc_html_e( 'Refresh', 'softart-post-sync-webhook' ); ?>
                     </button>
                     <button type="button" class="wpsw-btn wpsw-btn-secondary wpsw-btn-sm" id="wpsw-clear-log">
                         <span class="dashicons dashicons-trash"></span>
-                        <?php esc_html_e( 'Clear', 'wp-post-sync-webhook' ); ?>
+                        <?php esc_html_e( 'Clear', 'softart-post-sync-webhook' ); ?>
                     </button>
                 </div>
             </div>
             <div class="wpsw-panel-body">
                 <div class="wpsw-log-container" id="wpsw-log-container">
-                    <p class="wpsw-empty-state"><?php esc_html_e( 'No log entries yet.', 'wp-post-sync-webhook' ); ?></p>
+                    <p class="wpsw-empty-state"><?php esc_html_e( 'No log entries yet.', 'softart-post-sync-webhook' ); ?></p>
                 </div>
             </div>
         </div>
@@ -706,18 +706,18 @@ $total_synced = intval( $settings['sync_count'] ?? 0 );
         <span>
             <?php
             printf(
-                esc_html__( 'Developed by %s', 'wp-post-sync-webhook' ),
+                esc_html__( 'Developed by %s', 'softart-post-sync-webhook' ),
                 '<a href="https://softart.com.np" target="_blank" rel="noopener noreferrer">Prakash Tyata</a>'
             );
             ?>
         </span>
         <span class="wpsw-footer-sep">&middot;</span>
         <a href="https://softart.com.np/support" target="_blank" rel="noopener noreferrer">
-            <?php esc_html_e( 'Support', 'wp-post-sync-webhook' ); ?>
+            <?php esc_html_e( 'Support', 'softart-post-sync-webhook' ); ?>
         </a>
         <span class="wpsw-footer-sep">&middot;</span>
         <a href="https://softart.com.np/docs/wp-post-sync-webhook" target="_blank" rel="noopener noreferrer">
-            <?php esc_html_e( 'Documentation', 'wp-post-sync-webhook' ); ?>
+            <?php esc_html_e( 'Documentation', 'softart-post-sync-webhook' ); ?>
         </a>
     </div>
 

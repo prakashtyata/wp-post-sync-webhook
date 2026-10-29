@@ -24,7 +24,7 @@ class WPSW_i18n {
      */
     public function load_plugin_textdomain() {
         load_plugin_textdomain(
-            'wp-post-sync-webhook',
+            'softart-post-sync-webhook',
             false,
             dirname( WPSW_PLUGIN_BASENAME ) . '/languages/'
         );

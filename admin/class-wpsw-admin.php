@@ -48,33 +48,33 @@ class WPSW_Admin {
                 'ajaxUrl' => admin_url( 'admin-ajax.php' ),
                 'nonce'   => wp_create_nonce( 'wpsw_ajax' ),
                 'i18n'    => array(
-                    'testing'       => esc_html__( 'Testing connection...', 'wp-post-sync-webhook' ),
-                    'syncing'       => esc_html__( 'Syncing post...', 'wp-post-sync-webhook' ),
-                    'checking'      => esc_html__( 'Checking health...', 'wp-post-sync-webhook' ),
-                    'enterPostId'   => esc_html__( 'Please enter a valid Post ID', 'wp-post-sync-webhook' ),
-                    'noReceiverUrl' => esc_html__( 'Please enter a Receiver Webhook URL first', 'wp-post-sync-webhook' ),
-                    'copied'        => esc_html__( 'Copied to clipboard!', 'wp-post-sync-webhook' ),
-                    'keyCopied'     => esc_html__( 'Secret Key Copied!', 'wp-post-sync-webhook' ),
-                    'urlCopied'     => esc_html__( 'Endpoint URL Copied!', 'wp-post-sync-webhook' ),
-                    'generateKeyTip'=> esc_html__( 'Please generate or enter a secret key first', 'wp-post-sync-webhook' ),
-                    'invalidUrlTip' => esc_html__( 'Tip: Endpoint usually ends with /wp-json/post-sync/v1/receive', 'wp-post-sync-webhook' ),
-                    'confirmDelete' => esc_html__( 'Remove this receiver site?', 'wp-post-sync-webhook' ),
-                    'receiverAdded' => esc_html__( 'Receiver site added!', 'wp-post-sync-webhook' ),
-                    'logCleared'    => esc_html__( 'Log cleared.', 'wp-post-sync-webhook' ),
-                    'webhookUrlTipTitle' => esc_html__( 'Where to get this:', 'wp-post-sync-webhook' ),
-                    'webhookUrlTip' => esc_html__( 'This is the receive endpoint on the destination (receiver) site. On that site, open Post Sync Webhook &rarr; Connections and copy the "Your Webhook Endpoint" URL, then paste it here.', 'wp-post-sync-webhook' ),
-                    'secretKeyTipTitle' => esc_html__( 'Where to get / put this:', 'wp-post-sync-webhook' ),
-                    'secretKeyTip' => esc_html__( 'A shared password between both sites. Use the "Secret Key" shown on the receiver site (Connections tab) and paste the exact same key here, OR generate one here and paste it on the receiver site. Both sides must match.', 'wp-post-sync-webhook' ),
-                    'noPostsSelected' => esc_html__( 'Please select at least one post.', 'wp-post-sync-webhook' ),
-                    'noResults' => esc_html__( 'No posts found.', 'wp-post-sync-webhook' ),
-                    'searchFailed' => esc_html__( 'Search failed.', 'wp-post-sync-webhook' ),
-                    'syncComplete' => esc_html__( 'Sync Complete!', 'wp-post-sync-webhook' ),
-                    'add' => esc_html__( 'Add', 'wp-post-sync-webhook' ),
-                    'synced' => esc_html__( 'synced', 'wp-post-sync-webhook' ),
-                    'failed' => esc_html__( 'failed', 'wp-post-sync-webhook' ),
-                    'invalidIds' => esc_html__( 'Please enter valid post/page IDs separated by commas.', 'wp-post-sync-webhook' ),
-                    'resolving' => esc_html__( 'Resolving posts...', 'wp-post-sync-webhook' ),
-                    'idsNotFound' => esc_html__( 'IDs not found:', 'wp-post-sync-webhook' ),
+                    'testing'       => esc_html__( 'Testing connection...', 'softart-post-sync-webhook' ),
+                    'syncing'       => esc_html__( 'Syncing post...', 'softart-post-sync-webhook' ),
+                    'checking'      => esc_html__( 'Checking health...', 'softart-post-sync-webhook' ),
+                    'enterPostId'   => esc_html__( 'Please enter a valid Post ID', 'softart-post-sync-webhook' ),
+                    'noReceiverUrl' => esc_html__( 'Please enter a Receiver Webhook URL first', 'softart-post-sync-webhook' ),
+                    'copied'        => esc_html__( 'Copied to clipboard!', 'softart-post-sync-webhook' ),
+                    'keyCopied'     => esc_html__( 'Secret Key Copied!', 'softart-post-sync-webhook' ),
+                    'urlCopied'     => esc_html__( 'Endpoint URL Copied!', 'softart-post-sync-webhook' ),
+                    'generateKeyTip'=> esc_html__( 'Please generate or enter a secret key first', 'softart-post-sync-webhook' ),
+                    'invalidUrlTip' => esc_html__( 'Tip: Endpoint usually ends with /wp-json/post-sync/v1/receive', 'softart-post-sync-webhook' ),
+                    'confirmDelete' => esc_html__( 'Remove this receiver site?', 'softart-post-sync-webhook' ),
+                    'receiverAdded' => esc_html__( 'Receiver site added!', 'softart-post-sync-webhook' ),
+                    'logCleared'    => esc_html__( 'Log cleared.', 'softart-post-sync-webhook' ),
+                    'webhookUrlTipTitle' => esc_html__( 'Where to get this:', 'softart-post-sync-webhook' ),
+                    'webhookUrlTip' => esc_html__( 'This is the receive endpoint on the destination (receiver) site. On that site, open Post Sync Webhook &rarr; Connections and copy the "Your Webhook Endpoint" URL, then paste it here.', 'softart-post-sync-webhook' ),
+                    'secretKeyTipTitle' => esc_html__( 'Where to get / put this:', 'softart-post-sync-webhook' ),
+                    'secretKeyTip' => esc_html__( 'A shared password between both sites. Use the "Secret Key" shown on the receiver site (Connections tab) and paste the exact same key here, OR generate one here and paste it on the receiver site. Both sides must match.', 'softart-post-sync-webhook' ),
+                    'noPostsSelected' => esc_html__( 'Please select at least one post.', 'softart-post-sync-webhook' ),
+                    'noResults' => esc_html__( 'No posts found.', 'softart-post-sync-webhook' ),
+                    'searchFailed' => esc_html__( 'Search failed.', 'softart-post-sync-webhook' ),
+                    'syncComplete' => esc_html__( 'Sync Complete!', 'softart-post-sync-webhook' ),
+                    'add' => esc_html__( 'Add', 'softart-post-sync-webhook' ),
+                    'synced' => esc_html__( 'synced', 'softart-post-sync-webhook' ),
+                    'failed' => esc_html__( 'failed', 'softart-post-sync-webhook' ),
+                    'invalidIds' => esc_html__( 'Please enter valid post/page IDs separated by commas.', 'softart-post-sync-webhook' ),
+                    'resolving' => esc_html__( 'Resolving posts...', 'softart-post-sync-webhook' ),
+                    'idsNotFound' => esc_html__( 'IDs not found:', 'softart-post-sync-webhook' ),
                 ),
             )
         );
@@ -84,7 +84,7 @@ class WPSW_Admin {
         $settings_link = sprintf(
             '<a href="%s">%s</a>',
             admin_url( 'options-general.php?page=wp-post-sync-webhook' ),
-            esc_html__( 'Settings', 'wp-post-sync-webhook' )
+            esc_html__( 'Settings', 'softart-post-sync-webhook' )
         );
 
         array_unshift( $links, $settings_link );
@@ -96,14 +96,14 @@ class WPSW_Admin {
         check_ajax_referer( 'wpsw_ajax', 'nonce' );
 
         if ( ! current_user_can( 'manage_options' ) ) {
-            wp_send_json_error( esc_html__( 'Unauthorized', 'wp-post-sync-webhook' ) );
+            wp_send_json_error( esc_html__( 'Unauthorized', 'softart-post-sync-webhook' ) );
         }
 
         $receiver_id = isset( $_POST['receiver_id'] ) ? sanitize_text_field( $_POST['receiver_id'] ) : '';
         $receiver    = WPSW_Settings::get_receiver( $receiver_id );
 
         if ( ! $receiver || empty( $receiver['url'] ) ) {
-            wp_send_json_error( esc_html__( 'Receiver not found or URL not configured', 'wp-post-sync-webhook' ) );
+            wp_send_json_error( esc_html__( 'Receiver not found or URL not configured', 'softart-post-sync-webhook' ) );
         }
 
         $health_url = str_replace( '/receive', '/health', $receiver['url'] );
@@ -125,13 +125,13 @@ class WPSW_Admin {
 
         if ( 200 === $code && isset( $body['status'] ) && 'ok' === $body['status'] ) {
             wp_send_json_success( sprintf(
-                esc_html__( 'Connected to %s! Receiver version: %s', 'wp-post-sync-webhook' ),
+                esc_html__( 'Connected to %s! Receiver version: %s', 'softart-post-sync-webhook' ),
                 esc_html( $receiver['name'] ),
                 $body['version'] ?? 'unknown'
             ) );
         } else {
             wp_send_json_error( sprintf(
-                esc_html__( '%s: Unexpected response (HTTP %d)', 'wp-post-sync-webhook' ),
+                esc_html__( '%s: Unexpected response (HTTP %d)', 'softart-post-sync-webhook' ),
                 esc_html( $receiver['name'] ),
                 $code
             ) );
@@ -142,24 +142,24 @@ class WPSW_Admin {
         check_ajax_referer( 'wpsw_ajax', 'nonce' );
 
         if ( ! current_user_can( 'manage_options' ) ) {
-            wp_send_json_error( esc_html__( 'Unauthorized', 'wp-post-sync-webhook' ) );
+            wp_send_json_error( esc_html__( 'Unauthorized', 'softart-post-sync-webhook' ) );
         }
 
         $post_id    = isset( $_POST['post_id'] ) ? intval( $_POST['post_id'] ) : 0;
         $receiver_id = isset( $_POST['receiver_id'] ) ? sanitize_text_field( $_POST['receiver_id'] ) : '';
 
         if ( ! $post_id ) {
-            wp_send_json_error( esc_html__( 'Invalid post ID', 'wp-post-sync-webhook' ) );
+            wp_send_json_error( esc_html__( 'Invalid post ID', 'softart-post-sync-webhook' ) );
         }
 
         $post = get_post( $post_id );
         if ( ! $post ) {
-            wp_send_json_error( esc_html__( 'Post not found', 'wp-post-sync-webhook' ) );
+            wp_send_json_error( esc_html__( 'Post not found', 'softart-post-sync-webhook' ) );
         }
 
         $receiver = WPSW_Settings::get_receiver( $receiver_id );
         if ( ! $receiver ) {
-            wp_send_json_error( esc_html__( 'Receiver not found', 'wp-post-sync-webhook' ) );
+            wp_send_json_error( esc_html__( 'Receiver not found', 'softart-post-sync-webhook' ) );
         }
 
         $sender = new WPSW_Sender();
@@ -167,13 +167,13 @@ class WPSW_Admin {
 
         if ( $result ) {
             wp_send_json_success( sprintf(
-                esc_html__( 'Post #%d synced to %s!', 'wp-post-sync-webhook' ),
+                esc_html__( 'Post #%d synced to %s!', 'softart-post-sync-webhook' ),
                 $post_id,
                 esc_html( $receiver['name'] )
             ) );
         } else {
             wp_send_json_error( sprintf(
-                esc_html__( 'Sync to %s failed. Check debug log.', 'wp-post-sync-webhook' ),
+                esc_html__( 'Sync to %s failed. Check debug log.', 'softart-post-sync-webhook' ),
                 esc_html( $receiver['name'] )
             ) );
         }
@@ -183,18 +183,18 @@ class WPSW_Admin {
         check_ajax_referer( 'wpsw_ajax', 'nonce' );
 
         if ( ! current_user_can( 'manage_options' ) ) {
-            wp_send_json_error( esc_html__( 'Unauthorized', 'wp-post-sync-webhook' ) );
+            wp_send_json_error( esc_html__( 'Unauthorized', 'softart-post-sync-webhook' ) );
         }
 
         $post_id = isset( $_POST['post_id'] ) ? intval( $_POST['post_id'] ) : 0;
 
         if ( ! $post_id ) {
-            wp_send_json_error( esc_html__( 'Invalid post ID', 'wp-post-sync-webhook' ) );
+            wp_send_json_error( esc_html__( 'Invalid post ID', 'softart-post-sync-webhook' ) );
         }
 
         $post = get_post( $post_id );
         if ( ! $post ) {
-            wp_send_json_error( esc_html__( 'Post not found', 'wp-post-sync-webhook' ) );
+            wp_send_json_error( esc_html__( 'Post not found', 'softart-post-sync-webhook' ) );
         }
 
         $sender   = new WPSW_Sender();
@@ -223,7 +223,7 @@ class WPSW_Admin {
         check_ajax_referer( 'wpsw_ajax', 'nonce' );
 
         if ( ! current_user_can( 'manage_options' ) ) {
-            wp_send_json_error( esc_html__( 'Unauthorized', 'wp-post-sync-webhook' ) );
+            wp_send_json_error( esc_html__( 'Unauthorized', 'softart-post-sync-webhook' ) );
         }
 
         $post_type = isset( $_POST['post_type'] ) ? sanitize_key( $_POST['post_type'] ) : 'post';
@@ -267,14 +267,14 @@ class WPSW_Admin {
         check_ajax_referer( 'wpsw_ajax', 'nonce' );
 
         if ( ! current_user_can( 'manage_options' ) ) {
-            wp_send_json_error( esc_html__( 'Unauthorized', 'wp-post-sync-webhook' ) );
+            wp_send_json_error( esc_html__( 'Unauthorized', 'softart-post-sync-webhook' ) );
         }
 
         $ids = isset( $_POST['post_ids'] ) ? array_map( 'absint', (array) $_POST['post_ids'] ) : array();
         $ids = array_values( array_filter( $ids ) );
 
         if ( empty( $ids ) ) {
-            wp_send_json_error( esc_html__( 'No IDs provided', 'wp-post-sync-webhook' ) );
+            wp_send_json_error( esc_html__( 'No IDs provided', 'softart-post-sync-webhook' ) );
         }
 
         $titles = array();
@@ -292,14 +292,14 @@ class WPSW_Admin {
         check_ajax_referer( 'wpsw_ajax', 'nonce' );
 
         if ( ! current_user_can( 'manage_options' ) ) {
-            wp_send_json_error( esc_html__( 'Unauthorized', 'wp-post-sync-webhook' ) );
+            wp_send_json_error( esc_html__( 'Unauthorized', 'softart-post-sync-webhook' ) );
         }
 
         $post_ids    = isset( $_POST['post_ids'] ) ? array_map( 'absint', (array) $_POST['post_ids'] ) : array();
         $receiver_id = isset( $_POST['receiver_id'] ) ? sanitize_text_field( $_POST['receiver_id'] ) : '';
 
         if ( empty( $post_ids ) ) {
-            wp_send_json_error( esc_html__( 'No posts selected', 'wp-post-sync-webhook' ) );
+            wp_send_json_error( esc_html__( 'No posts selected', 'softart-post-sync-webhook' ) );
         }
 
         $sender   = new WPSW_Sender();
@@ -345,7 +345,7 @@ class WPSW_Admin {
 
         $receiver = WPSW_Settings::get_receiver( $receiver_id );
         if ( ! $receiver ) {
-            wp_send_json_error( esc_html__( 'Receiver not found', 'wp-post-sync-webhook' ) );
+            wp_send_json_error( esc_html__( 'Receiver not found', 'softart-post-sync-webhook' ) );
         }
 
         $results = array();
@@ -371,7 +371,7 @@ class WPSW_Admin {
         check_ajax_referer( 'wpsw_ajax', 'nonce' );
 
         if ( ! current_user_can( 'manage_options' ) ) {
-            wp_send_json_error( esc_html__( 'Unauthorized', 'wp-post-sync-webhook' ) );
+            wp_send_json_error( esc_html__( 'Unauthorized', 'softart-post-sync-webhook' ) );
         }
 
         $settings = $this->get_settings_for_display();
@@ -387,18 +387,18 @@ class WPSW_Admin {
         check_ajax_referer( 'wpsw_ajax', 'nonce' );
 
         if ( ! current_user_can( 'manage_options' ) ) {
-            wp_send_json_error( esc_html__( 'Unauthorized', 'wp-post-sync-webhook' ) );
+            wp_send_json_error( esc_html__( 'Unauthorized', 'softart-post-sync-webhook' ) );
         }
 
         delete_option( 'wpsw_log' );
-        wp_send_json_success( esc_html__( 'Log cleared.', 'wp-post-sync-webhook' ) );
+        wp_send_json_success( esc_html__( 'Log cleared.', 'softart-post-sync-webhook' ) );
     }
 
     public function ajax_get_log() {
         check_ajax_referer( 'wpsw_ajax', 'nonce' );
 
         if ( ! current_user_can( 'manage_options' ) ) {
-            wp_send_json_error( esc_html__( 'Unauthorized', 'wp-post-sync-webhook' ) );
+            wp_send_json_error( esc_html__( 'Unauthorized', 'softart-post-sync-webhook' ) );
         }
 
         $log = get_option( 'wpsw_log', array() );

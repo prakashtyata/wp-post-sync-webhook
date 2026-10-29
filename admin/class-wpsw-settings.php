@@ -16,10 +16,10 @@ class WPSW_Settings {
 
     public function add_settings_page() {
         add_options_page(
-            esc_html__( 'Post Sync Webhook', 'wp-post-sync-webhook' ),
-            esc_html__( 'Post Sync Webhook', 'wp-post-sync-webhook' ),
+            esc_html__( 'Post Sync Webhook', 'softart-post-sync-webhook' ),
+            esc_html__( 'Post Sync Webhook', 'softart-post-sync-webhook' ),
             'manage_options',
-            'wp-post-sync-webhook',
+            'softart-post-sync-webhook',
             array( $this, 'render_settings_page' )
         );
     }
@@ -163,7 +163,7 @@ class WPSW_Settings {
         if ( ! empty( $settings['receiver_url'] ) || ! empty( $settings['secret_key'] ) ) {
             $migrated['receivers'][] = array(
                 'id'         => 'rcv_' . wp_generate_password( 8, false ),
-                'name'       => esc_html__( 'Default Receiver', 'wp-post-sync-webhook' ),
+                'name'       => esc_html__( 'Default Receiver', 'softart-post-sync-webhook' ),
                 'url'        => $settings['receiver_url'] ?? '',
                 'secret_key' => $settings['secret_key'] ?? wp_generate_password( 32, false ),
                 'enabled'    => true,
