@@ -17,6 +17,9 @@
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       wp-post-sync-webhook
  * Domain Path:       /languages
+ *
+ * GitHub Plugin URI:  prakashtyata/wp-post-sync-webhook
+ * Primary Branch:     main
  */
 
 // If this file is called directly, abort.
