@@ -10,7 +10,7 @@
  * Plugin Name:       SoftArt Post Sync Webhook
  * Plugin URI:        https://softart.com.np/plugins/wp-post-sync-webhook
  * Description:       Sync posts, pages, and Elementor/Divi-built content between WordPress sites using secure webhooks. Supports multiple receiver sites with per-site settings.
- * Version:           2.1.2
+ * Version:           2.1.3
  * Author:            Prakash Tyata
  * Author URI:        https://softart.com.np/
  * License:           GPL-2.0+

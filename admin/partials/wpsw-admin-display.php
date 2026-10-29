@@ -47,7 +47,7 @@ $total_synced = intval( $settings['sync_count'] ?? 0 );
                     'receiver' => '📥 ' . esc_html__( 'Receiver', 'softart-post-sync-webhook' ),
                     'both'     => '🔄 ' . esc_html__( 'Two-Way', 'softart-post-sync-webhook' ),
                 );
-                echo $mode_labels[ $mode ] ?? $mode_labels['sender'];
+                echo esc_html( $mode_labels[ $mode ] ?? $mode_labels['sender'] );
                 ?>
             </span>
         </div>
@@ -66,7 +66,7 @@ $total_synced = intval( $settings['sync_count'] ?? 0 );
            role="tab">
             <span class="dashicons dashicons-admin-links"></span>
             <?php esc_html_e( 'Connections', 'softart-post-sync-webhook' ); ?>
-            <span class="wpsw-tab-badge"><?php echo $receiver_count; ?></span>
+            <span class="wpsw-tab-badge"><?php echo esc_html( $receiver_count ); ?></span>
         </a>
         <a href="?page=wp-post-sync-webhook&tab=sync-rules"
            class="wpsw-tab <?php echo 'sync-rules' === $active_tab ? 'active' : ''; ?>"
@@ -98,12 +98,12 @@ $total_synced = intval( $settings['sync_count'] ?? 0 );
             </div>
             <div class="wpsw-card wpsw-status-card">
                 <span class="wpsw-card-icon">📡</span>
-                <div class="wpsw-card-value"><?php echo $receiver_count; ?></div>
+                <div class="wpsw-card-value"><?php echo esc_html( $receiver_count ); ?></div>
                 <div class="wpsw-card-label"><?php esc_html_e( 'Active Receivers', 'softart-post-sync-webhook' ); ?></div>
             </div>
             <div class="wpsw-card wpsw-status-card">
                 <span class="wpsw-card-icon">📊</span>
-                <div class="wpsw-card-value"><?php echo $total_synced; ?></div>
+                <div class="wpsw-card-value"><?php echo esc_html( $total_synced ); ?></div>
                 <div class="wpsw-card-label"><?php esc_html_e( 'Total Synced', 'softart-post-sync-webhook' ); ?></div>
             </div>
             <div class="wpsw-card wpsw-status-card">
@@ -112,6 +112,7 @@ $total_synced = intval( $settings['sync_count'] ?? 0 );
                     <?php
                     if ( ! empty( $settings['last_sync'] ) ) {
                         printf(
+                            /* translators: %s: time difference */
                             esc_html__( '%s ago', 'softart-post-sync-webhook' ),
                             esc_html( human_time_diff( strtotime( $settings['last_sync'] ) ) )
                         );
@@ -252,21 +253,21 @@ $total_synced = intval( $settings['sync_count'] ?? 0 );
                         <?php endif; ?>
 
                         <?php foreach ( $receivers as $index => $recv ) : ?>
-                            <div class="wpsw-receiver-card" data-index="<?php echo $index; ?>">
+                            <div class="wpsw-receiver-card" data-index="<?php echo esc_attr( $index ); ?>">
                                 <div class="wpsw-receiver-card-header">
                                     <div class="wpsw-receiver-drag-handle">
                                         <span class="dashicons dashicons-move"></span>
                                     </div>
                                     <div class="wpsw-receiver-card-title">
                                         <input type="text"
-                                               name="wpsw_settings[receivers][<?php echo $index; ?>][name]"
+                                               name="wpsw_settings[receivers][<?php echo esc_attr( $index ); ?>][name]"
                                                value="<?php echo esc_attr( $recv['name'] ); ?>"
                                                class="wpsw-receiver-name-input"
                                                placeholder="<?php esc_attr_e( 'Receiver name...', 'softart-post-sync-webhook' ); ?>">
                                     </div>
                                     <label class="wpsw-toggle">
                                         <input type="checkbox"
-                                               name="wpsw_settings[receivers][<?php echo $index; ?>][enabled]"
+                                               name="wpsw_settings[receivers][<?php echo esc_attr( $index ); ?>][enabled]"
                                                value="1"
                                                <?php checked( ! empty( $recv['enabled'] ) ); ?>>
                                         <span class="wpsw-toggle-slider"></span>
@@ -280,7 +281,7 @@ $total_synced = intval( $settings['sync_count'] ?? 0 );
                                 </div>
                                 <div class="wpsw-receiver-card-body">
                                     <input type="hidden"
-                                           name="wpsw_settings[receivers][<?php echo $index; ?>][id]"
+                                           name="wpsw_settings[receivers][<?php echo esc_attr( $index ); ?>][id]"
                                            value="<?php echo esc_attr( $recv['id'] ); ?>">
 
                                     <div class="wpsw-field-row">
@@ -296,7 +297,7 @@ $total_synced = intval( $settings['sync_count'] ?? 0 );
                                         </label>
                                         <div class="wpsw-field-input-group">
                                             <input type="url"
-                                                   name="wpsw_settings[receivers][<?php echo $index; ?>][url]"
+                                                   name="wpsw_settings[receivers][<?php echo esc_attr( $index ); ?>][url]"
                                                    value="<?php echo esc_attr( $recv['url'] ); ?>"
                                                    class="wpsw-input wpsw-input-full wpsw-receiver-url"
                                                    placeholder="https://example.com/wp-json/post-sync/v1/receive">
@@ -317,7 +318,7 @@ $total_synced = intval( $settings['sync_count'] ?? 0 );
                                         </label>
                                         <div class="wpsw-field-input-group wpsw-key-group">
                                             <input type="password"
-                                                   name="wpsw_settings[receivers][<?php echo $index; ?>][secret_key]"
+                                                   name="wpsw_settings[receivers][<?php echo esc_attr( $index ); ?>][secret_key]"
                                                    value="<?php echo esc_attr( $recv['secret_key'] ); ?>"
                                                    class="wpsw-input wpsw-input-full wpsw-secret-key"
                                                    placeholder="<?php esc_attr_e( 'Enter or generate key...', 'softart-post-sync-webhook' ); ?>">
@@ -347,9 +348,9 @@ $total_synced = intval( $settings['sync_count'] ?? 0 );
                                                 ?>
                                                 <label class="wpsw-checkbox-item <?php echo $checked ? 'checked' : ''; ?>">
                                                     <input type="checkbox"
-                                                           name="wpsw_settings[receivers][<?php echo $index; ?>][post_types][]"
+                                                           name="wpsw_settings[receivers][<?php echo esc_attr( $index ); ?>][post_types][]"
                                                            value="<?php echo esc_attr( $pt->name ); ?>"
-                                                           <?php echo $checked; ?>>
+                                                           <?php echo esc_attr( $checked ); ?>>
                                                     <span class="wpsw-pt-label"><?php echo esc_html( $pt->label ); ?></span>
                                                 </label>
                                                 <?php
@@ -439,15 +440,15 @@ $total_synced = intval( $settings['sync_count'] ?? 0 );
         <input type="hidden" name="wpsw_settings[mode]" value="<?php echo esc_attr( $mode ); ?>">
         <input type="hidden" name="wpsw_settings[secret_key]" value="<?php echo esc_attr( $settings['secret_key'] ?? '' ); ?>">
         <?php foreach ( $receivers as $index => $recv ) : ?>
-            <input type="hidden" name="wpsw_settings[receivers][<?php echo $index; ?>][id]" value="<?php echo esc_attr( $recv['id'] ); ?>">
-            <input type="hidden" name="wpsw_settings[receivers][<?php echo $index; ?>][name]" value="<?php echo esc_attr( $recv['name'] ); ?>">
-            <input type="hidden" name="wpsw_settings[receivers][<?php echo $index; ?>][url]" value="<?php echo esc_attr( $recv['url'] ); ?>">
-            <input type="hidden" name="wpsw_settings[receivers][<?php echo $index; ?>][secret_key]" value="<?php echo esc_attr( $recv['secret_key'] ); ?>">
+            <input type="hidden" name="wpsw_settings[receivers][<?php echo esc_attr( $index ); ?>][id]" value="<?php echo esc_attr( $recv['id'] ); ?>">
+            <input type="hidden" name="wpsw_settings[receivers][<?php echo esc_attr( $index ); ?>][name]" value="<?php echo esc_attr( $recv['name'] ); ?>">
+            <input type="hidden" name="wpsw_settings[receivers][<?php echo esc_attr( $index ); ?>][url]" value="<?php echo esc_attr( $recv['url'] ); ?>">
+            <input type="hidden" name="wpsw_settings[receivers][<?php echo esc_attr( $index ); ?>][secret_key]" value="<?php echo esc_attr( $recv['secret_key'] ); ?>">
             <?php if ( ! empty( $recv['enabled'] ) ) : ?>
-                <input type="hidden" name="wpsw_settings[receivers][<?php echo $index; ?>][enabled]" value="1">
+                <input type="hidden" name="wpsw_settings[receivers][<?php echo esc_attr( $index ); ?>][enabled]" value="1">
             <?php endif; ?>
             <?php foreach ( $recv['post_types'] ?? array( 'post' ) as $pt ) : ?>
-                <input type="hidden" name="wpsw_settings[receivers][<?php echo $index; ?>][post_types][]" value="<?php echo esc_attr( $pt ); ?>">
+                <input type="hidden" name="wpsw_settings[receivers][<?php echo esc_attr( $index ); ?>][post_types][]" value="<?php echo esc_attr( $pt ); ?>">
             <?php endforeach; ?>
         <?php endforeach; ?>
         <div class="wpsw-tab-content">
@@ -706,6 +707,7 @@ $total_synced = intval( $settings['sync_count'] ?? 0 );
         <span>
             <?php
             printf(
+                /* translators: %s: author name */
                 esc_html__( 'Developed by %s', 'softart-post-sync-webhook' ),
                 '<a href="https://softart.com.np" target="_blank" rel="noopener noreferrer">Prakash Tyata</a>'
             );

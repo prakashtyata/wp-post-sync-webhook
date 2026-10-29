@@ -125,13 +125,15 @@ class WPSW_Admin {
 
         if ( 200 === $code && isset( $body['status'] ) && 'ok' === $body['status'] ) {
             wp_send_json_success( sprintf(
-                esc_html__( 'Connected to %s! Receiver version: %s', 'softart-post-sync-webhook' ),
+                /* translators: 1: receiver name, 2: version */
+                esc_html__( 'Connected to %1$s! Receiver version: %2$s', 'softart-post-sync-webhook' ),
                 esc_html( $receiver['name'] ),
                 $body['version'] ?? 'unknown'
             ) );
         } else {
             wp_send_json_error( sprintf(
-                esc_html__( '%s: Unexpected response (HTTP %d)', 'softart-post-sync-webhook' ),
+                /* translators: 1: receiver name, 2: HTTP code */
+                esc_html__( '%1$s: Unexpected response (HTTP %2$d)', 'softart-post-sync-webhook' ),
                 esc_html( $receiver['name'] ),
                 $code
             ) );
@@ -167,7 +169,8 @@ class WPSW_Admin {
 
         if ( $result ) {
             wp_send_json_success( sprintf(
-                esc_html__( 'Post #%d synced to %s!', 'softart-post-sync-webhook' ),
+                /* translators: 1: post ID, 2: receiver name */
+                esc_html__( 'Post #%1$d synced to %2$s!', 'softart-post-sync-webhook' ),
                 $post_id,
                 esc_html( $receiver['name'] )
             ) );
