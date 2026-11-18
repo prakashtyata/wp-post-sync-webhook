@@ -15,7 +15,7 @@ if ( ! defined( 'WPINC' ) ) {
 class WPSW_Admin {
 
     public function enqueue_styles( $hook ) {
-        if ( 'settings_page_wp-post-sync-webhook' !== $hook ) {
+        if ( 'settings_page_softart-post-sync-webhook' !== $hook ) {
             return;
         }
 
@@ -29,7 +29,7 @@ class WPSW_Admin {
     }
 
     public function enqueue_scripts( $hook ) {
-        if ( 'settings_page_wp-post-sync-webhook' !== $hook ) {
+        if ( 'settings_page_softart-post-sync-webhook' !== $hook ) {
             return;
         }
 
@@ -83,7 +83,7 @@ class WPSW_Admin {
     public function add_action_links( $links ) {
         $settings_link = sprintf(
             '<a href="%s">%s</a>',
-            admin_url( 'options-general.php?page=wp-post-sync-webhook' ),
+            admin_url( 'options-general.php?page=softart-post-sync-webhook' ),
             esc_html__( 'Settings', 'softart-post-sync-webhook' )
         );
 
@@ -111,8 +111,7 @@ class WPSW_Admin {
         $response = wp_remote_get(
             $health_url,
             array(
-                'timeout'   => 15,
-                'sslverify' => false,
+                'timeout' => 15,
             )
         );
 
@@ -128,7 +127,7 @@ class WPSW_Admin {
                 /* translators: 1: receiver name, 2: version */
                 esc_html__( 'Connected to %1$s! Receiver version: %2$s', 'softart-post-sync-webhook' ),
                 esc_html( $receiver['name'] ),
-                $body['version'] ?? 'unknown'
+                esc_html( $body['version'] ?? 'unknown' )
             ) );
         } else {
             wp_send_json_error( sprintf(

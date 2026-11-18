@@ -54,7 +54,7 @@ Perfect for agencies, content networks, and multi-site publishers who need to di
 
 == Installation ==
 
-1. Upload the plugin files to `/wp-content/plugins/wp-post-sync-webhook/`
+1. Upload the plugin files to `/wp-content/plugins/softart-post-sync-webhook/`
 2. Activate the plugin through the 'Plugins' screen in WordPress
 3. Go to Settings → Post Sync Webhook to configure
 

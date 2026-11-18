@@ -45,7 +45,6 @@ class WPSW_Loader {
         $this->filters = array();
 
         $this->load_dependencies();
-        $this->set_locale();
         $this->define_admin_hooks();
         $this->define_public_hooks();
     }
@@ -57,23 +56,11 @@ class WPSW_Loader {
      * @access private
      */
     private function load_dependencies() {
-        require_once WPSW_PLUGIN_PATH . 'includes/class-wpsw-i18n.php';
         require_once WPSW_PLUGIN_PATH . 'admin/class-wpsw-admin.php';
         require_once WPSW_PLUGIN_PATH . 'public/class-wpsw-public.php';
         require_once WPSW_PLUGIN_PATH . 'includes/class-wpsw-sender.php';
         require_once WPSW_PLUGIN_PATH . 'includes/class-wpsw-receiver.php';
         require_once WPSW_PLUGIN_PATH . 'includes/class-wpsw-image-handler.php';
-    }
-
-    /**
-     * Define the locale for this plugin for internationalization.
-     *
-     * @since  1.0.0
-     * @access private
-     */
-    private function set_locale() {
-        $plugin_i18n = new WPSW_i18n();
-        $this->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
     }
 
     /**

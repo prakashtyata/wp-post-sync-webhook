@@ -1,10 +1,9 @@
 === SoftArt Post Sync Webhook ===
 Contributors: prakashtyata
-Donate link: https://softart.com.np/donate
-Tags: sync, webhook, post sync, multisite, content sync, migration, duplicate posts
+Tags: sync, webhook, post sync, multisite, content sync
 Requires at least: 5.0
 Tested up to: 7.1
-Stable tag: 2.1.3
+Stable tag: 2.1.4
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -13,9 +12,9 @@ Sync posts, pages, and Elementor-built content between WordPress sites using sec
 
 == Description ==
 
-**WP Post Sync Webhook** allows you to automatically sync content between two or more WordPress sites. When you publish or update a post on the sender site, it automatically appears on the receiver site.
+**SoftArt Post Sync Webhook** allows you to automatically sync content between two or more WordPress sites. When you publish or update a post on the sender site, it automatically appears on the receiver site.
 
-Perfect for agencies, content networks, and multi-site publishers who need to distribute content across multiple WordPress installations.
+One site acts as the sender and any number of sites can act as receivers. Each receiver has its own webhook URL, secret key, enabled post types and sync status, so content can be distributed to several destinations from a single settings screen.
 
 = ✨ Features =
 
@@ -29,7 +28,7 @@ Perfect for agencies, content networks, and multi-site publishers who need to di
 * **Custom Post Types** - Sync any public post type
 * **Manual Sync** - Manually sync specific posts when needed
 * **Health Check** - Verify connection status between sites
-* **Beautiful Admin UI** - Modern, intuitive settings panel with setup cheat sheets
+* **Guided Setup** - Tabbed settings screen with step-by-step connection instructions
 
 = 🎯 Use Cases =
 
@@ -54,7 +53,7 @@ Perfect for agencies, content networks, and multi-site publishers who need to di
 
 == Installation ==
 
-1. Upload the plugin files to `/wp-content/plugins/wp-post-sync-webhook/`
+1. Upload the plugin files to `/wp-content/plugins/softart-post-sync-webhook/`
 2. Activate the plugin through the 'Plugins' screen in WordPress
 3. Go to Settings → Post Sync Webhook to configure
 
@@ -92,6 +91,26 @@ The sync will fail silently. Check the debug log for error messages. The post wi
 
 Yes. All webhooks are signed with HMAC-SHA256 and verified using a shared secret key. Without the correct secret key, webhooks are rejected.
 
+== External services ==
+
+This plugin does not send any data to SoftArt. It only communicates with the sites and URLs you configure yourself.
+
+= Webhook requests =
+
+When a post is published or updated on a sender site, its content, post meta and taxonomy terms are sent to the receiver webhook URL entered in the settings. The request is signed with the secret key you generate.
+
+= Image downloads =
+
+A receiver site downloads the images referenced in received content from the URLs contained in that content, so they can be imported into its media library.
+
+= Update checks =
+
+The GitHub Plugin URI header is used by the GitHub Updater plugin, when installed, to check this plugin's GitHub repository for new releases.
+
+= Service used =
+
+GitHub (https://github.com/prakashtyata/wp-post-sync-webhook) hosts the plugin source code and release packages. Terms of service: https://docs.github.com/en/site-policy/github-terms/github-terms-of-service Privacy policy: https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement
+
 = Does it work with page builders? =
 
 Yes, the post content is synced as-is, including page builder shortcodes and blocks. Images are also imported and URLs are updated.
@@ -106,13 +125,25 @@ Yes, you can select which post types to sync in the settings panel.
 
 == Screenshots ==
 
-1. Dashboard with sync statistics and status cards
-2. Mode selection with visual cards
-3. Connection settings panel
-4. Tools panel with test connection and manual sync
-5. Quick setup guide
+1. Dashboard with sync statistics and receiver status
+2. Connection settings with webhook URL and secret key
 
 == Changelog ==
+
+= 2.1.4 =
+* Escaped the remaining dynamic attribute output in the post type checkboxes
+* Fixed the admin styles and scripts not loading on the settings page
+* Fixed the Settings link on the Plugins screen
+* Removed the bundled translation loader; WordPress now loads translations automatically
+* Removed the plugin icon, banner and screenshots from the plugin package; they are distributed through the directory
+* Updated the plugin and documentation URLs, the readme tags and the external services disclosure
+
+= 2.1.3 =
+* Escaped dynamic output in the admin settings screen
+* Fixed text domain usage across admin and receiver classes
+
+= 2.1.2 =
+* Renamed the plugin and text domain to follow WordPress.org guidelines
 
 = 2.1.1 =
 * Manual Sync: shows full scrollable list of posts/pages with search, plus option to manually enter comma-separated post/page IDs

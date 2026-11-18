@@ -346,7 +346,7 @@ $total_synced = intval( $settings['sync_count'] ?? 0 );
                                                 }
                                                 $checked = in_array( $pt->name, $selected, true ) ? 'checked' : '';
                                                 ?>
-                                                <label class="wpsw-checkbox-item <?php echo $checked ? 'checked' : ''; ?>">
+                                                <label class="wpsw-checkbox-item <?php echo esc_attr( $checked ); ?>">
                                                     <input type="checkbox"
                                                            name="wpsw_settings[receivers][<?php echo esc_attr( $index ); ?>][post_types][]"
                                                            value="<?php echo esc_attr( $pt->name ); ?>"
@@ -707,9 +707,18 @@ $total_synced = intval( $settings['sync_count'] ?? 0 );
         <span>
             <?php
             printf(
-                /* translators: %s: author name */
+                /* translators: %s: author name and profile link */
                 esc_html__( 'Developed by %s', 'softart-post-sync-webhook' ),
-                '<a href="https://softart.com.np" target="_blank" rel="noopener noreferrer">Prakash Tyata</a>'
+                wp_kses(
+                    '<a href="https://softart.com.np" target="_blank" rel="noopener noreferrer">Prakash Tyata</a>',
+                    array(
+                        'a' => array(
+                            'href'   => array(),
+                            'target' => array(),
+                            'rel'    => array(),
+                        ),
+                    )
+                )
             );
             ?>
         </span>
@@ -718,7 +727,7 @@ $total_synced = intval( $settings['sync_count'] ?? 0 );
             <?php esc_html_e( 'Support', 'softart-post-sync-webhook' ); ?>
         </a>
         <span class="wpsw-footer-sep">&middot;</span>
-        <a href="https://softart.com.np/docs/wp-post-sync-webhook" target="_blank" rel="noopener noreferrer">
+        <a href="https://github.com/prakashtyata/wp-post-sync-webhook#readme" target="_blank" rel="noopener noreferrer">
             <?php esc_html_e( 'Documentation', 'softart-post-sync-webhook' ); ?>
         </a>
     </div>

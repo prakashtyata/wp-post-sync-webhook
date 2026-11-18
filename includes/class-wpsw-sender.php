@@ -183,7 +183,6 @@ class WPSW_Sender {
                 ),
                 'body'      => $body_json,
                 'timeout'   => 120,
-                'sslverify' => false,
             )
         );
 

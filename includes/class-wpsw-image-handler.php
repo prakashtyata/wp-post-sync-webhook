@@ -330,9 +330,8 @@ class WPSW_Image_Handler {
         $response = wp_remote_get(
             $url,
             array(
-                'timeout'   => 60,
-                'sslverify' => false,
-                'headers'   => array( 'Accept' => 'image/*' ),
+                'timeout' => 60,
+                'headers' => array( 'Accept' => 'image/*' ),
             )
         );
 

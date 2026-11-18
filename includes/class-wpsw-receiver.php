@@ -35,7 +35,7 @@ class WPSW_Receiver {
             array(
                 'methods'             => 'POST',
                 'callback'            => array( $this, 'handle_receive' ),
-                'permission_callback' => '__return_true',
+                'permission_callback' => array( $this, 'can_receive' ),
             )
         );
 
@@ -45,9 +45,47 @@ class WPSW_Receiver {
             array(
                 'methods'             => 'GET',
                 'callback'            => array( $this, 'handle_health' ),
-                'permission_callback' => '__return_true',
+                'permission_callback' => array( $this, 'can_check_health' ),
             )
         );
+    }
+
+    /**
+     * The health endpoint is public so a sender site can test the connection.
+     *
+     * @return bool
+     */
+    public function can_check_health() {
+        return true;
+    }
+
+    /**
+     * Only accept webhooks that carry a valid HMAC signature.
+     *
+     * @param  WP_REST_Request $request Incoming request.
+     * @return bool|WP_Error
+     */
+    public function can_receive( WP_REST_Request $request ) {
+        $settings = $this->get_settings();
+
+        if ( ! in_array( $settings['mode'], array( 'receiver', 'both' ), true ) ) {
+            return new WP_Error(
+                'wpsw_receiver_disabled',
+                esc_html__( 'Receiver mode not enabled', 'softart-post-sync-webhook' ),
+                array( 'status' => 403 )
+            );
+        }
+
+        if ( ! $this->verify_signature( $request, $request->get_body() ) ) {
+            $this->log( 'Invalid signature' );
+            return new WP_Error(
+                'wpsw_invalid_signature',
+                esc_html__( 'Invalid signature', 'softart-post-sync-webhook' ),
+                array( 'status' => 403 )
+            );
+        }
+
+        return true;
     }
 
     public function handle_health( WP_REST_Request $request ) {
